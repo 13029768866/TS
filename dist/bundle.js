@@ -1,7 +1,7 @@
 (function () {
 	'use strict';
 
-	var str = 'hello';
+	var str = 'hello ts';
 	console.log(str);
 
 }());
