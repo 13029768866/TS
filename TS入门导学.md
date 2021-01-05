@@ -40,7 +40,7 @@
 
 4.  本地编译(构建工具rollup)
 
-#### 1.2.4 rollup构建ts项目
+#### 1.2.1 rollup构建ts项目
 
 1. ```js
    1、npm install ts-node -g
@@ -90,5 +90,48 @@
 
 ```
 tsconfig.json中module模式更改为ESNext
+```
+
+### 1.3、工作流
+
+**TS --> JS --> 打包处理 --> 部署**
+
+![](TS入门导学.assets\TS工作流.png)
+
+## 二、TS基础类型
+
+### 2.1 Boolean 类型
+
+```typescript
+let isDone: boolean = false;
+// ES5：var isDone = false;
+复制代码
+```
+
+### 2.2 Number 类型
+
+```typescript
+let count: number = 10;
+// ES5：var count = 10;
+复制代码
+```
+
+### 2.3 String 类型
+
+```typescript
+let name: string = "semliker";
+// ES5：var name = 'semlinker';
+复制代码
+```
+
+### 2.4 Symbol 类型
+
+```typescript
+const sym = Symbol();
+let obj = {
+  [sym]: "semlinker",
+};
+
+console.log(obj[sym]); // semlinker 
 ```
 
