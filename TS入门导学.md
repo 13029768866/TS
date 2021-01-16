@@ -135,3 +135,4 @@ let obj = {
 console.log(obj[sym]); // semlinker 
 ```
 
+ 
