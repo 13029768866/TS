@@ -10,7 +10,7 @@ let list1:Array<number | string> = [1,2,3,'a','b','c']
 
 // Void
 let v:void;
-v = undefined;
+v = undefined; 
 
 // Object
 const creat = (obj:object) => {}
@@ -20,3 +20,4 @@ creat({})
 creat(function () {})
 
 
+ 
