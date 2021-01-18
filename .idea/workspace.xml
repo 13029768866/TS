@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bdaffd2c-e6da-4bdb-96b8-35761962fe67" name="Default Changelist" comment="TS项目移除打包文件">
-      <change beforePath="$PROJECT_DIR$/dist/bundle.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/bundle.js.map" beforeDir="false" />
+    <list default="true" id="bdaffd2c-e6da-4bdb-96b8-35761962fe67" name="Default Changelist" comment="TS基本数据类型(数组,元组)">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_2021_1_5_0005_1_12__Default_Changelist_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,13 +24,13 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="init" />
+        <entry key="$PROJECT_DIR$" value="ts-base-data-type" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1lyEcXegWerHm6tw2g8zZcNk5DU" />
-  <component name="ProjectLevelVcsManager">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -68,6 +70,7 @@
         <item itemvalue="TypeScript.index.ts" />
         <item itemvalue="TypeScript.index.ts" />
         <item itemvalue="TypeScript.index.ts" />
+        <item itemvalue="TypeScript.index.ts" />
       </list>
     </recent_temporary>
   </component>
@@ -86,6 +89,10 @@
       <workItem from="1609605208003" duration="1087000" />
       <workItem from="1609689002805" duration="7000" />
       <workItem from="1609773318188" duration="6165000" />
+      <workItem from="1610028979689" duration="35000" />
+      <workItem from="1610811465509" duration="412000" />
+      <workItem from="1610898941909" duration="655000" />
+      <workItem from="1610980581039" duration="3410000" />
     </task>
     <task id="LOCAL-00001" summary="TS init">
       <created>1609603990228</created>
@@ -129,7 +136,42 @@
       <option name="project" value="LOCAL" />
       <updated>1609860559907</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="TS基本数据类型">
+      <created>1610027822944</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1610027822944</updated>
+    </task>
+    <task id="LOCAL-00008" summary="TS基本数据类型">
+      <created>1610811752461</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1610811752462</updated>
+    </task>
+    <task id="LOCAL-00009" summary="TS基本数据类型">
+      <created>1610898993888</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1610898993888</updated>
+    </task>
+    <task id="LOCAL-00010" summary="TS基本数据类型">
+      <created>1610981900674</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1610981900674</updated>
+    </task>
+    <task id="LOCAL-00011" summary="TS基本数据类型(数组,元组)">
+      <created>1610983642551</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1610983642551</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -153,6 +195,8 @@
     <MESSAGE value="TS Markdown文件添加" />
     <MESSAGE value="TS项目重构初始化" />
     <MESSAGE value="TS项目移除打包文件" />
-    <option name="LAST_COMMIT_MESSAGE" value="TS项目移除打包文件" />
+    <MESSAGE value="TS基本数据类型" />
+    <MESSAGE value="TS基本数据类型(数组,元组)" />
+    <option name="LAST_COMMIT_MESSAGE" value="TS基本数据类型(数组,元组)" />
   </component>
 </project>
