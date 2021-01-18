@@ -137,4 +137,87 @@ console.log(obj[sym]); // semlinker
 
 ###  2.5、Array 类型
 
+1. 联合类型
+
+   ```typescript
+   let list:(number | string)[] = [1,2,3,'a','b','c']
+   ```
+
+2. 泛型
+
+   ```typescript
+   let list1:Array<number | string> = [1,2,3,'a','b','c']
+   ```
+
+### 2.6、Tuple 类型
+
+在 JavaScript 中是没有元组的，元组是 TypeScript 中特有的类型,**长度和内容类型都限制好的数组**
+
+```typescript
+lettupleType: [string, boolean];
+tupleType= ["semlinker", true];
+console.log(tupleType[0]); // semlinker
+console.log(tupleType[1]); // true
+```
+
+1. 类型不匹配
+
+   ```typescript
+   tupleType = [true, "semlinker"];
+   [0]: Type 'true' is not assignable to type 'string'.
+   [1]: Type 'string' is not assignable to type 'boolean'.
+   ```
+
+2. 长度不匹配
+
+   ```typescript
+   tupleType = ["semlinker"];
+   Property '1' is missing in type '[string]' but required in type '[string, boolean]'.
+   ```
+
+3. 元组越界
+
+   ```typescript
+   lettupleType: [string, boolean];
+   tupleType= ["semlinker", true];
+   tupleType.push('wzj')  // 越界也只能添加元组约定的类型
+   ```
+
 ### 2.11、Never类型
+
+永远不，是任何类型的子类型，可以复制给任何类型
+
+1. 错误
+
+   ```typescript
+   function error(message: string): never {
+     throw new Error(message);
+   }
+   ```
+
+2. 死循环
+
+   ```typescript
+   function infiniteLoop(): never {
+     while (true) {}
+   }
+   ```
+
+3. 类型判断时
+
+   ```typescript
+   type Foo = string | number;
+   
+   function controlFlowAnalysisWithNever(foo: Foo) {
+     if (typeof foo === "string") {
+       // 这里 foo 被收窄为 string 类型
+     } else if (typeof foo === "number") {
+       // 这里 foo 被收窄为 number 类型
+     } else {
+       // foo 在这里是 never
+       const check: never = foo;
+     }
+   }
+   ```
+
+   
