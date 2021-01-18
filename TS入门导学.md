@@ -40,7 +40,7 @@
 
 4.  本地编译(构建工具rollup)
 
-#### 1.2.1 rollup构建ts项目
+#### 1.2.1、rollup构建ts项目
 
 1. ```js
    1、npm install ts-node -g
@@ -100,7 +100,7 @@ tsconfig.json中module模式更改为ESNext
 
 ## 二、TS基础类型
 
-### 2.1 Boolean 类型
+### 2.1、Boolean 类型
 
 ```typescript
 let isDone: boolean = false;
@@ -108,7 +108,7 @@ let isDone: boolean = false;
 复制代码
 ```
 
-### 2.2 Number 类型
+### 2.2、Number 类型
 
 ```typescript
 let count: number = 10;
@@ -116,7 +116,7 @@ let count: number = 10;
 复制代码
 ```
 
-### 2.3 String 类型
+### 2.3、String 类型
 
 ```typescript
 let name: string = "semliker";
@@ -124,7 +124,7 @@ let name: string = "semliker";
 复制代码
 ```
 
-### 2.4 Symbol 类型
+### 2.4、Symbol 类型
 
 ```typescript
 const sym = Symbol();
@@ -135,4 +135,6 @@ let obj = {
 console.log(obj[sym]); // semlinker 
 ```
 
- 
+###  2.5、Array 类型
+
+### 2.11、Never类型
