@@ -374,6 +374,56 @@ function warnUser() {
    v = null;
    ```
 
+### 2.10、Unkonwn类型
+
+就像所有类型都可以赋值给 `any`，所有类型也都可以赋值给 `unknown`。这使得 `unknown` 成为 TypeScript 类型系统的另一种顶级类型（另一种是 `any`）。下面我们来看一下 `unknown` 类型的使用示例：
+
+```typescript
+let value: unknown;
+
+value = true; // OK
+value = 42; // OK
+value = "Hello World"; // OK
+value = []; // OK
+value = {}; // OK
+value = Math.random; // OK
+value = null; // OK
+value = undefined; // OK
+value = new TypeError(); // OK
+value = Symbol("type"); // OK
+```
+
+对 `value` 变量的所有赋值都被认为是类型正确的。但是，当我们尝试将类型为 `unknown` 的值赋值给其他类型的变量时会发生什么？
+
+```typescript
+let value: unknown;
+
+let value1: unknown = value; // OK
+let value2: any = value; // OK
+let value3: boolean = value; // Error
+let value4: number = value; // Error
+let value5: string = value; // Error
+let value6: object = value; // Error
+let value7: any[] = value; // Error
+let value8: Function = value; // Error
+```
+
+`unknown` 类型只能被赋值给 `any` 类型和 `unknown` 类型本身。直观地说，这是有道理的：只有能够保存任意类型值的容器才能保存 `unknown` 类型的值。毕竟我们不知道变量 `value` 中存储了什么类型的值。
+
+现在让我们看看当我们尝试对类型为 `unknown` 的值执行操作时会发生什么。以下是我们在之前 `any` 章节看过的相同操作：
+
+```typescript
+let value: unknown;
+
+value.foo.bar; // Error
+value.trim(); // Error
+value(); // Error
+new value(); // Error
+value[0][1]; // Error
+```
+
+将 `value` 变量类型设置为 `unknown` 后，这些操作都不再被认为是类型正确的。通过将 `any` 类型改变为 `unknown` 类型，我们已将允许所有更改的默认设置，更改为禁止任何更改。
+
 ### 2.11、Never类型
 
 永远不，是任何类型的子类型，可以复制给任何类型
@@ -411,4 +461,82 @@ function warnUser() {
    }
    ```
 
+   ### 2.12、对象类型（非原始数据类型）
    
+   1. object
+   
+      object 类型是：TypeScript 2.2 引入的新类型，它用于表示非原始类型。
+   
+      ```typescript
+      // node_modules/typescript/lib/lib.es5.d.ts
+      interface ObjectConstructor {
+        create(o: object | null): any;
+        // ...
+      }
+      
+      const proto = {};
+      
+      Object.create(proto);     // OK
+      Object.create(null);      // OK
+      Object.create(undefined); // Error
+      Object.create(1337);      // Error
+      Object.create(true);      // Error
+      Object.create("oops");    // Error
+      ```
+   
+   2. ObjectObject 类型：它是所有 Object 类的实例的类型，它由以下两个接口来定义：
+   
+      - Object 接口定义了 Object.prototype 原型对象上的属性；
+   
+      ```typescript
+      // node_modules/typescript/lib/lib.es5.d.ts
+      interface Object {
+        constructor: Function;
+        toString(): string;
+        toLocaleString(): string;
+        valueOf(): Object;
+        hasOwnProperty(v: PropertyKey): boolean;
+        isPrototypeOf(v: Object): boolean;
+        propertyIsEnumerable(v: PropertyKey): boolean;
+      }
+      ```
+   
+      - ObjectConstructor 接口定义了 Object 类的属性。
+   
+      ```typescript
+      // node_modules/typescript/lib/lib.es5.d.ts
+      interface ObjectConstructor {
+        /** Invocation via `new` */
+        new(value?: any): Object;
+        /** Invocation via function calls */
+        (value?: any): any;
+        readonly prototype: Object;
+        getPrototypeOf(o: any): any;
+        // ···
+      }
+      
+      declare var Object: ObjectConstructor;
+      ```
+   
+      Object 类的所有实例都继承了 Object 接口中的所有属性。
+   
+   3. {} 类型描述了一个没有成员的对象。当你试图访问这样一个对象的任意属性时，TypeScript 会产生一个编译时错误。
+   
+      ```typescript
+      // Type {}
+      const obj = {};
+      
+      // Error: Property 'prop' does not exist on type '{}'.
+      obj.prop = "semlinker";
+      复制代码
+      ```
+   
+      但是，你仍然可以使用在 Object 类型上定义的所有属性和方法，这些属性和方法可通过 JavaScript 的原型链隐式地使用：
+   
+      ```typescript
+      // Type {}
+      const obj = {};
+      
+      // "[object Object]"
+      obj.toString();
+      ```
