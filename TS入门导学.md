@@ -540,3 +540,81 @@ value[0][1]; // Error
       // "[object Object]"
       obj.toString();
       ```
+
+## 三、断言
+
+### 3.1、类型断言
+
+1. 泛型语法(不推荐，容易跟jsx语法冲突)
+
+   ```typescript
+   let someValue: any = 'this type is string';
+   let strLength:number = (<string>someValue).length;
+   ```
+
+2. as语法
+
+   ```typescript
+   let someValue: any = 'this type is string';
+   let strLength: number = (someValue as string).length;
+   ```
+
+### 3.2、非空断言
+
+在上下文中当类型检查器无法断定类型时，一个新的后缀表达式操作符 `!` 可以用于断言操作对象是非 null 和非 undefined 类型。**具体而言，x! 将从 x 值域中排除 null 和 undefined 。**
+
+1. 忽略null和undefined
+
+   ```typescript
+   function myFunc(maybeString: string | null | undefined){   
+       const onlyString: string = maybeString; 		// Error
+       // Type 'string | null | undefined' is not assignable to type 'string'.
+       // Type 'undefined' is not assignable to type 'string'.
+       
+       const ignoreNullAndUndefined = maybeString!;	// Ok
+   }
+   ```
+
+2. 忽略函数返回的undefined
+
+   ```typescript
+   type NumGenerator = () => undefined;
+   function myFunc(numGenerator: NumGenerator | undefined){
+       const num = numGenerator();		// Error
+       // TS2532: Object is possibly 'undefined'.
+       // TS2722: Cannot invoke an object which is possibly 'undefined'.
+   
+       const num1 = numGenerator!();	// Ok
+   }
+   ```
+
+   因为 `!` 非空断言操作符会从编译生成的 JavaScript 代码中移除，所以在实际使用的过程中，要特别注意。比如下面这个例子：
+
+   ```typescript
+   const a: number | undefined = undefined;
+   const b: number = a!;
+   console.log(b); 
+   
+   "use strict";
+   const a = undefined;
+   const b = a;
+   console.log(b);
+   ```
+
+### 3.3、确定赋值断言
+
+通过 `let x!: number;` 确定赋值断言，TypeScript 编译器就会知道该属性会被明确地赋值
+
+```typescript
+let x: number;
+init()
+console.log(x);		// Error
+
+let x!: number;
+console.log(x);		// Ok
+// TS2454: Variable 'x' is used before being assigned.
+function init(){
+  x = 10
+}
+```
+
