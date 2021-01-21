@@ -19,9 +19,9 @@ v = undefined;
 // Object
 const creat = (obj:object) => {}
 
-creat([])
+/*creat([])
 creat({})
-creat(function () {})
+creat(function () {})*/
 
  // 断言
  // 非空断言
