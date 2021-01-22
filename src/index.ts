@@ -16,6 +16,8 @@ let v:void;
 v = undefined;
 // v = null;
 
+
+
 // Object
 const creat = (obj:object) => {}
 
