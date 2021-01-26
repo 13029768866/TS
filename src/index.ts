@@ -11,6 +11,7 @@ let list1:Array<number | string> = [1,2,3,'a','b','c']
 // null和undefined
 /*let str: string;
 str = undefined;*/
+// TS2322: Type 'undefined' is not assignable to type 'string'.
 // Void
 let v:void;
 v = undefined;
