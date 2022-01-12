@@ -34,26 +34,42 @@ let un: undefined = undefined;
 /* never 永远达不到的情况 */
 // 1、程序报错
 function throwError(): never{
-  throw new Error('错误警告！')
+  throw new Error('错误!')
 }
 // 2、死循环
-function forever(): never{
-  while(true){}
+function never():never{
+  while (true){}
 }
 // 3、永远走不到的情况（完整性保护）
 /* 联合类型只能取到共有属性 */
-type ICircle = { r: number, kind: 'circle'};
-type ISquare = { width: number, kind: 'square'};
+type ICircle = { r: number, kind: 'circle'}
+type ISquare = { width: number, kind: 'square'}
 
-function validateNever(obj: never){};
+function validate(obj: never){}
 function getArea(obj: ICircle | ISquare){
   if(obj.kind === 'circle'){
-    return Math.pow(obj.r,2);
+    return Math.pow(obj.r, 2)
   }else if(obj.kind === 'square'){
-    return Math.pow(obj.width,2)
+    return Math.pow(obj.width, 2)
   }
-  validateNever(obj);
+  validate(obj);
 }
+
+/*  void 函数没有返回值, undefined兼容void */
+function test(): void{}
+
+/* object && any */
+// object除了基本类型,都可以使用,例如数组,对象,函数
+function create(target: object){
+  // 只判断类型,不能取值
+  // target.xxx
+}
+
+/* symbol && bigInt */
+
+let name = 'xxx'; // 全局存在name属性,无法重复声明
+export {};  // 实现模块化,不会污染全局
+
 
 
 

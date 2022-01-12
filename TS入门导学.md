@@ -1,16 +1,9 @@
 ## 一、TS是什么
 
 - TS是微软开发的一种开源的编程语言
-
 - TS是JS的一个超集，遵循ES5/ES6/ES7规范，拓展了JS语法，添加了可选的静态类型和基于类的面向对象编程
 
-- TS与 ES5、ES2015 和 ES2016 之间的关系
-
-  ![](TS入门导学.assets/ts.png)
-
-  
-
-### 1.1、TS与 JS的区别
+### 1.1、TS JS的区别
 
 | TypeScript                                     | JavaScript                                 |
 | ---------------------------------------------- | ------------------------------------------ |
@@ -105,7 +98,6 @@ tsconfig.json中module模式更改为ESNext
 ```typescript
 let isDone: boolean = false;
 // ES5：var isDone = false;
-复制代码
 ```
 
 ### 2.2、Number 类型
@@ -113,7 +105,6 @@ let isDone: boolean = false;
 ```typescript
 let count: number = 10;
 // ES5：var count = 10;
-复制代码
 ```
 
 ### 2.3、String 类型
@@ -121,7 +112,6 @@ let count: number = 10;
 ```typescript
 let name: string = "semliker";
 // ES5：var name = 'semlinker';
-复制代码
 ```
 
 ### 2.4、Symbol 类型
