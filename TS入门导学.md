@@ -54,7 +54,7 @@
    import path from 'path'
    
    export default {
-       input: 'src/index.ts',
+       input: 'src/1.ts基础类型.ts',
        output:{
            format: 'iife',      // 立即执行
            file: path.resolve(__dirname,'dist/bundle.js'),
@@ -607,4 +607,8 @@ function init(){
   x = 10
 }
 ```
+
+## 四、类
+
+### 4.1 
 
