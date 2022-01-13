@@ -610,5 +610,70 @@ function init(){
 
 ## 四、类
 
-### 4.1 
+### 4.1 属性修饰符
 
+1.  public 公有属性 
+
+2. private 私有属性
+
+   ```js
+   class Animal{
+     constructor(private name: string) { // 私有属性
+       this.name = name;
+     }
+   }
+   
+   class Cat extends Animal {
+    constructor(name: string, age: number) {
+      super(name);
+      this.name = name;	// Error
+    }
+   }
+   
+   const cat = new Cat('Tom',8)
+   console.log(cat.name);	// Error
+   ```
+
+3. protected 受保护的
+
+   ```js
+   class Animal{
+     protected constructor(protected  name: string) { 
+       this.name = name;
+     }
+   }
+   
+   class Cat extends Animal {
+    constructor(name: string, age: number) {
+      super(name);
+      this.name = name;
+    }
+   }
+   
+   new Animal()	// Error
+   const cat = new Cat('Tom',8)
+   console.log(cat.name);	// Error
+   ```
+
+4. readonly
+
+   ```js
+   class Animal{
+       // readonly name: string = 'abc  初始化赋值
+      constructor(readonly name: string = 'abc') {
+       this.name = name;	// 初始化赋值
+     }
+   }
+   
+   class Cat extends Animal {
+    constructor(name: string, age: number) {
+      super(name);
+      this.name = name;	// Error
+    }
+   }
+   
+   const cat = new Cat('Tom',8)
+   cat.name = 'kd';		// Error
+   ```
+
+   

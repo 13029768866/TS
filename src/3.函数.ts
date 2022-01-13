@@ -32,7 +32,7 @@ function toArray(val:any){
 }
 
 let test = toArray(12345)
-let test1 = toArray(12345)
+let test1 = toArray('12345')
 
 
 export {};
