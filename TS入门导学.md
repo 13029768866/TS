@@ -676,4 +676,8 @@ function init(){
    cat.name = 'kd';		// Error
    ```
 
-   
+
+## 五、接口
+
+### 5.1、
+
