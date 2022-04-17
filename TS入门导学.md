@@ -41,7 +41,7 @@
    3、npm init -y	// 初始化配置文件
    4、npm install rollup typescript rollup-plugin-typescript2 @rollup/plugin-node-resolve rollup-plugin-serve -D		//	安装依赖
    rollup-plugin-typescript2 		// 解析ts文件
-   @rollup/plugin-node-resolve		// 解析第三方模块 
+   @rollup/plugin-node-resolve		// 用node的方式解析第三方模块 
    rollup-plugin-serve				// 启动本地服务
    ```
 
