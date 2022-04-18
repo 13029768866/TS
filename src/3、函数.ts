@@ -21,10 +21,10 @@ type IThis = typeof obj;
 
 defaultFn1.call(obj, 'a')
 
-// 函数重载（方法名相同,参数不同,逻辑不通）
+// 函数重载（方法名相同,参数不同,逻辑不同）
 function toArray(val: number): Array<number>
 function toArray(val: string): Array<string>
-function toArray(val: string | number): Array<string | number>{
+function toArray(val: string | number): Array<string | number>{ // 实现参数是父类型就可以
   if(typeof val === 'string'){ return val.split('') }
   else{ return val.toString().split('').map(Number)}
 }
