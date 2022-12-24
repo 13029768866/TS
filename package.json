@@ -4,24 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "rollup -cw"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/13029768866/TS.git"
+    "dev": "rollup -c -w"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/13029768866/TS/issues"
-  },
-  "homepage": "https://github.com/13029768866/TS#readme",
   "devDependencies": {
-    "@rollup/plugin-node-resolve": "^13.1.3",
-    "rollup": "^2.63.0",
-    "rollup-plugin-serve": "^1.1.0",
-    "rollup-plugin-typescript2": "^0.31.1",
-    "typescript": "^4.5.4"
+    "@rollup/plugin-node-resolve": "^15.0.1",
+    "rollup": "^3.8.1",
+    "rollup-plugin-serve": "^2.0.2",
+    "rollup-plugin-typescript2": "^0.34.1",
+    "typescript": "^4.9.4"
   }
 }
