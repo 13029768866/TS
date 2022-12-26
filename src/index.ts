@@ -20,7 +20,7 @@ let arr4: Array<string> = ['1','2','3'];
 let arr5: Array<string | number> = [1,2,3,'1','2','3'];
 
 /* 元组（长度、类型固定的数组） */
-// 可以通过数组的方法进行越界,可以存放但是无法使用
+// 可以通过数组的方法进行越界,可以增加但是无法使用
 let tuple:[ string, number, boolean ] = ['wzj', 28, true];
 let username = tuple[0];
 
