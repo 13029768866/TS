@@ -24,4 +24,25 @@ let arr5: Array<string | number> = [1,2,3,'1','2','3'];
 let tuple:[ string, number, boolean ] = ['wzj', 28, true];
 let username = tuple[0];
 
+/* 枚举 */
+// 1、数字枚举,没有赋值,从0开始,数字递增
+enum USER_ROLE {
+    USER,
+    ADMIN,
+    SUPER_ADMIN
+}
+// 2、字符串枚举
+enum STR_ENUM {
+    DICT_A = 'a',
+    DICT_B = 'b'
+}
+
+// 3、常量枚举
+const enum CONST_ENUM {
+    USER = 'a',
+    ADMIN = 10
+}
+
+/* never类型 */
+
 export {};
