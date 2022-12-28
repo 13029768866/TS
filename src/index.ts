@@ -44,5 +44,30 @@ const enum CONST_ENUM {
 }
 
 /* never类型 */
+// 1、无法到达终点（死循环）
+function whileTrue(): never {
+    while(true) {}
+}
+
+// 2、抛出错误
+function throwError(): never {
+    throw new Error();
+}
+
+// 3、校验逻辑完整性，实现完整性保护
+function validateCheck(val: never){};
+function getResult(strOrBooleanOrNum: string | boolean | number) {
+    if(typeof strOrBooleanOrNum === 'string'){
+        return 'string'
+    }else if(typeof strOrBooleanOrNum === 'number'){
+        return 'number'
+    }else if(typeof strOrBooleanOrNum === 'boolean'){
+        return 'boolean'
+    }
+
+    validateCheck(strOrBooleanOrNum);
+}
+
+
 
 export {};
