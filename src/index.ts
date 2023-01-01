@@ -68,6 +68,16 @@ function getResult(strOrBooleanOrNum: string | boolean | number) {
     validateCheck(strOrBooleanOrNum);
 }
 
+/* 对象 */
+// 1、大写的Object类型,基本不用
+// 2、{}字面量类型
+// 3、object表示对象类型
+function create(target: object){};
+create(function() {});
+create([]);
+create({});
+// create(123);
+
 
 
 export {};
