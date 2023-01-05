@@ -77,7 +77,7 @@ create(function() {});
 create([]);
 create({});
 // error
-// create(123);
+create(123);
 
 
 export {};
