@@ -28,4 +28,19 @@ let sumNum = function (a: number, ...args: number[]) {
 let result = sumNum(0, 1, 2, 3, 4);
 console.log(result);
 
+/**
+ * ? 函数重载
+ */
+function toArray(value: string): string[];
+function toArray(value: number): number[];
+function toArray(value: string | number) {
+    if(typeof value === 'string') {
+        return value.split('');
+    }else {
+        return value.toString().split("").map(Number);
+    }
+}
+let arr1 = toArray('123');
+let arr2 = toArray(123);
+
 export {};
