@@ -20,12 +20,13 @@ let arr4: Array<string> = ['1','2','3'];
 let arr5: Array<string | number> = [1,2,3,'1','2','3'];
 
 /* 元组（长度、类型固定的数组） */
-// 可以通过数组的方法进行越界,可以增加但是无法使用
+// 可以通过数组的方法进行越界,可以增加但是无法使用,并且只能新增已经存在的类型
 let tuple:[ string, number, boolean ] = ['wzj', 28, true];
 let username = tuple[0];
 
 /* 枚举 */
 // 1、数字枚举,没有赋值,从0开始,数字递增
+// 数字类型才能反举
 enum USER_ROLE {
     USER,
     ADMIN,
@@ -42,6 +43,15 @@ const enum CONST_ENUM {
     USER = 'a',
     ADMIN = 10
 }
+
+/* null && undefined */
+// 在非严格strictCheckNull下，这两个类型是任何类型的子类型
+const n: null = null;
+const u: undefined = undefined;
+
+
+/* void */ 
+// 空类型，常用于函数的返回值
 
 /* never类型 */
 // 1、无法到达终点（死循环）
@@ -77,7 +87,7 @@ create(function() {});
 create([]);
 create({});
 // error
-create(123);
+// create(123);
 
 
 export {};

@@ -45,7 +45,7 @@
    rollup-plugin-serve				// 启动本地服务
    ```
 
-2. rollup.config.js
+2. rollup.config.mjs
 
    ```js
    import ts from 'rollup-plugin-typescript2'                  // 解析ts创建
@@ -79,7 +79,7 @@
    ps: 如果开启源码映射，tsconfig.js中同步开启
    ```
 
-3.  错误处理![](TS入门导学.assets/ts-bug.png)
+3.  错误处理
 
 ```
 tsconfig.json中module模式更改为ESNext
