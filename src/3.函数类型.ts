@@ -27,3 +27,5 @@ let sumNum = function (a: number, ...args: number[]) {
 
 let result = sumNum(0, 1, 2, 3, 4);
 console.log(result);
+
+export {};
