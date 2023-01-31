@@ -40,7 +40,7 @@ console.log('静态属性~~~', Props.type);
 // 3、抽象方法子类必须实现
 abstract class Person {
     drink() {
-        console.log('喝');        
+        console.log('喝');
     }
     abstract eat(): void;
 }
@@ -52,10 +52,10 @@ class Teacher extends Person {
     // }
 
     // 实例实现
-    eat:() => void;
+    eat: () => void;
     constructor() {
         super();
-        this.eat = function() {
+        this.eat = function () {
             console.log('吃');
         }
     }

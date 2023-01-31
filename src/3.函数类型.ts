@@ -34,13 +34,13 @@ console.log(result);
 function toArray(value: string): string[];
 function toArray(value: number): number[];
 function toArray(value: string | number) {
-    if(typeof value === 'string') {
+    if (typeof value === 'string') {
         return value.split('');
-    }else {
+    } else {
         return value.toString().split("").map(Number);
     }
 }
 let arr1 = toArray('123');
 let arr2 = toArray(123);
 
-export {};
+export { };

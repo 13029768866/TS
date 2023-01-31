@@ -10,4 +10,4 @@ type Person = typeof person;
 type PersonKey = keyof Person;
 getName.call(person, 'name');
 
-export {};
+export { };
