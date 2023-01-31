@@ -1,82 +1,56 @@
-/* 接口interface */
-// 1、用来描述结构的(对象、类、函数、混合类型)
+/** 
+ *  ! 泛型
+ */
 
-/* 和type对比 */
-// type: 可以用联合类型、不能重名、可以用于条件类型、映射
-// interface: 可以重名、可以被拓展和实现、继承、混合类型
+// 类似于函数的形参,一般采用一个大写的字母
 
+// ? 入参和返回值存在映射关系时候
+const getArray = <T>(times: number, val: T): T[] => {
+    let result = [];
+    for (let i = 0; i < times; i++) {
+        result.push(val);
+    }
+    return result;
+}
+// getArray(3, '123');
+// getArray(3, 123);
 
-// 计数器
-interface ICount {
-    (): number;
-    count: number;
+// ? 元组交换
+function swap<T, U>(tuple: [T, U]): [U, T] {
+    return [tuple[1], tuple[0]]
+}
+// type写法
+type TSwap = <T, U>(tuple: [T, U]) => [U, T];
+const tSwap: TSwap = (tuple) => {
+    return [tuple[1], tuple[0]]
 }
 
-const counter: ICount = () => {
-    return counter.count++;
+// interface写法
+interface ISwap {
+    <T, U>(tuple: [T, U]): [U, T];
 }
-counter.count = 0;
-
-
-// interface用于对象
-interface IVeg {
-    color: string;
-    taste: string;
-    size: number;
-}
-
-// ?1、通过断言的方法
-// let veg: IVeg = {
-//     color: 'red',
-//     taste: 'sour',
-//     size: 10,
-//     other: 'xxx'
-// } as IVeg;
-
-// ?2、通过可选属性来标识
-// interface IVeg {
-//     color: string;
-//     taste: string;
-//     size: number;
-//     other?: string;
-// }
-
-// ?3、继承拓展
-// interface IVegWithOther extends IVeg {
-//     other?: string;
-// }
-// let veg: IVegWithOther = {
-//     color: 'red',
-//     taste: 'sour',
-//     size: 10,
-//     other: 'xxx'
-// }
-
-// ?4、同名接口自动合并
-
-
-/* 任意类型 */
-interface IObject {
-    [key: string]: any;
-}
-
-interface IArr {
-    [key: number]: any;
+const iSwap1: ISwap = (tuple) => {
+    return [tuple[1], tuple[0]]
 }
 
 
-// 通过索引访问接口中属性类型
-interface Person {
-    name: string;
-    age: number;
-    address: {
-        num: 888
+// ? 给myForEach添加类型
+
+type ICb<T> = (item: T) => void;
+type IForEach = <T>(arr: T[], cb: ICb<T>) => void;
+
+// ! 注意
+type ICb1<T> = (item: T) => void;   // 泛型在接口后,使用接口时候确定类型
+type ICb2 = <T>(item: T) => void;   // 泛型在函数前,调用函数时候确定类型
+
+
+const myForEach: IForEach = (arr, cb) => {
+    for (let i = 0; i < arr.length; i++) {
+        cb(arr[i]);
     }
 }
-
-type PersonName = Person['name'];
-type PersonAdress = Person['address']['num'];
-type PersonUnion = keyof Person;
-type PersonValUnion = Person[PersonUnion];
+myForEach([1, '2', 3], function (item) {
+    console.log(item);
+})
 
 export { };
