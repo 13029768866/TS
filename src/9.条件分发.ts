@@ -1,5 +1,5 @@
 /** 
- * ! 条件类型
+ * ! 条件分发
  */
 
 type ResultMessage<T> = T extends 200 | 201 | 204 | 206 ? 'success' : 'fail';
