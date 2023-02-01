@@ -56,4 +56,14 @@ type T9 = SelectType<Bird | Fish>;
 type SelectType1<T> = [T] extends [Fish] ? Water : Sky;
 type T10 = SelectType1<Bird | Fish>;
 
+// 阻止分发
+type NoDistrubte<T> = T & {};
+type UnionAssets<T, U> = NoDistrubte<T> extends U ? true : false;
+
+type T11 = UnionAssets<1 | 2, 1 | 2 | 3>;
+type T12 = UnionAssets<1 | 2 | 3, 1 | 2>;
+
+// 判断两个类型完全相等
+type IsEqual<T, U, Success, Fail> = T extends U ? U extends T ? Success : Fail : Fail;
+type T13 = IsEqual<1 | 2, 1 | 2, true, false>;
 export { };
