@@ -1,31 +1,19 @@
 /**
- * ! 函数逆变,协变
+ * ! 类型推断
  */
-// 逆变: 子 -> 父
-// 协变: 父 -> 子
-// 总结: 传参可以向上兼容父亲, 返回值可以向下兼容孙子
-class Parent {
-    house() { }
+
+// 1、赋值推断
+let name = 'str';
+let age = 30;
+
+// 2、从右向左
+function sum(a: string, b: string) {
+    return a + b;
 }
 
-class Child extends Parent {
-    car() { }
+// 3、反向推断（从左到右, 从右到左）
+type ISum = (a: string, b: string) => string;
+const sum1: ISum = (a, b) => {
+    return a + b;
 }
-class Grandson extends Child {
-    sleep() { }
-}
-
-function fn(cb: (instance: Child) => Child) {
-    cb(new Grandson());
-}
-
-fn((instance: Parent): Grandson => {
-    return new Grandson();
-})
-
-type Arg<T> = (arg: T) => void;
-type Return<T> = (arg: any) => T;
-
-type isArg = Arg<Parent> extends Arg<Child> ? true : false;             // 逆变
-type isReturn = Return<Grandson> extends Return<Child> ? true : false;  // 协变
 export { };
