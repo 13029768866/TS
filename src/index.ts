@@ -1,41 +1,48 @@
-type A = {
-    name: string;
-    age: number;
-    address: string;
-}
+``
+// 1、元组的长度
+type LengthOfTuple<T extends any[]> = T['length'];
+type lengthA = LengthOfTuple<['B','F','E']>;    // 3
+type lengthB = LengthOfTuple<[]>;               // 0
 
-type B = {
-    name: string;
-    male: boolean;
-    address: string;
-}
+// 2、获取数组第一项
+type FirstItem<T extends any[]> = T[0];
+type startA = FirstItem<[string, number, boolean]>; // string
+type startB = FirstItem<['B', 'F', 'E']>;           // 'B'
 
-// 对象交集
-type ObjectInner<T extends object, U extends object> = Pick<
-    T, 
-    Extract<keyof T, keyof U>
->;
+// 3、获取数组最后一项
+type LastItem<T extends any[]> = T extends [...any, infer L]
+? L
+: never ;
 
-type inner = ObjectInner<A, B>;
+type endA = LastItem<[string, number, boolean]>;    // boolean
+type endB = LastItem<['B', 'F', 'E']>;              // 'E'
+type endC = LastItem<[]>;                           // never
+     
+// 数组shift方法
+type Shift<T extends any[]> = T extends [infer A, ...infer B]
+? B
+: T ;
+type shiftA = Shift<[1,2,3]>;       // [2,3]
+type shiftB = Shift<[1]>;           // []
+type shiftC = Shift<[]>;            // []
 
-// 对象差集
-type ObjectDiff<T extends object, U extends object> = Pick<T, Exclude<keyof T, keyof U>>;
-type diffA = ObjectDiff<A,B>;
-type diffB = ObjectDiff<B,A>;
+// 数组push方法
+type Push<T extends any[], U> = [...T, U];
+type pushA = Push<[1,2,3], 4>;  // [1,2,3,4]
+type pushB = Push<[1], 4>;  // [1,4]
 
-// 类型互斥
-interface Man {
-    rich: string;
-    funny?: never;
-}
-interface Man1 {
-    funny: string;
-    rich?: never;
-}
+// 元组reverse方法
+type ReverseTuple<T extends any[], F extends any[] = []> = T extends [infer L, ...infer R]
+? ReverseTuple<R,[ L,...F]>
+: F;
 
-type ManType = Man | Man1;
-let man: ManType = {
-    // rich: '富有',
-    funny: '风趣'
-}
+type A = ReverseTuple<[string, number, boolean]>; // [boolean, number, string]
+
+
+// 数组拍平
+type Flat<T extends any[]> = T extends [infer L, ...infer R]
+? [...(L extends any[]? Flat<L>: [L]), ...Flat<R>]
+: []
+;
+type flatA = Flat<[1,[2,3],[4,[5,6]]]>  // [,1,2,3,4,5,6]
 export {};
