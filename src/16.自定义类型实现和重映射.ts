@@ -20,9 +20,9 @@ type res = Compute<PartialOpt<Person, 'name'>>;
 // 2、根据值得类型选择key
 type isEqual<T, U, Success, Fail> = [T] extends [U]
     ? [U] extends [T]
-     ? Success :
-     Fail :
-    Fail; 
+     ? Success 
+     :Fail 
+    :Fail; 
 
 type PickVal2Key<T, U> = {
     [K in keyof T]: isEqual<T[K], U, K, never>
